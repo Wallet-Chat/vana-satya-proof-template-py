@@ -18,7 +18,7 @@ def load_config() -> Dict[str, Any]:
     config = {
         'dlp_id': 1234,  # Set your own DLP ID here
         'input_dir': INPUT_DIR,
-        'user_email': os.environ.get('USER_EMAIL', None),
+        'user_api_key': os.environ.get('USER_API_KEY', None),
     }
     logging.info(f"Using config: {json.dumps(config, indent=2)}")
     return config
