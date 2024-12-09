@@ -2,7 +2,7 @@
 
 This repository serves as a template for creating a [proof of contribution](https://docs.vana.org/vana/core-concepts/key-elements/proof-of-contribution) tasks using Python. It is executed on Vana's Satya Network, a group of highly confidential and secure compute nodes that can validate data without revealing its contents to the node operator.
 
-## Overview
+## Overview 
 
 This template provides a basic structure for building proof tasks that:
 
