@@ -33,8 +33,12 @@ class Proof:
 
                     if input_filename == 'daily_sleep.json':
                         #print("In Daily Sleep JSON", input_data)
-                        id_from_json = input_data["data"][0]["id"]
-                        print("ID from JSON: ", id_from_json)
+                        if "data" in input_data and len(input_data["data"]) > 0:
+                            id_from_json = input_data["data"][0]["id"]
+                            print("ID from File: ", id_from_json)
+                        else:
+                            print("Error: 'data' key is missing or empty in daily_sleep.json")
+                        #print("ID from JSON: ", id_from_json)
                         #apikey_from_json = input_data.get('apikey', None)
                         continue
 
@@ -58,9 +62,12 @@ class Proof:
             # Parse the JSON response
             data = response.json()
             
-            # Extract the email address (assuming it's available in the response)
-            data_id_api_response = data["data"][0]["id"]
-            print("ID from  API: ", data_id_api_response)
+            # Check if the response contains data and has at least one element
+            if "data" in data and len(data["data"]) > 0:
+                data_id_api_response = data["data"][0]["id"]
+                print("ID from API: ", data_id_api_response)
+            else:
+                print("Response JSON does not contain expected data:", data)
         else:
             print(f"Failed to fetch data. Status code: {response.status_code}")
 
